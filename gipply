@@ -1,0 +1,12 @@
+#!/bin/bash
+url="$1"
+# Check if received parameter
+if [ -z "$url" ]
+then
+	echo "URL to apply .diff must be supplied"
+	exit
+fi
+echo "Applying onto ${url}..."
+curl $url | git apply -v 
+echo "Done."
+
